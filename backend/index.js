@@ -16,7 +16,11 @@ app.get('/ping', (req, res) => {
 });
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({
+    origin: [process.env.FRONTEND_URL],
+    methods: ["GET","POST","DELETE", "PUT"],
+    credentials: true,
+}));
 
 
 app.use('/auth', AuthRouter);
@@ -25,5 +29,5 @@ app.use('/expenses', ensureAuthenticated, ExpenseRouter);
 
 
 app.listen(PORT, () => {
-    console.log(`Server is running on ${PORT}`)            
+    console.log(`Server is running on ${PORT}`)
 })
