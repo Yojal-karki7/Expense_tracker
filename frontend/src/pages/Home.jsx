@@ -13,6 +13,8 @@ const Home = () => {
   const [incomeAmount, setIncomeAmount] = useState(0)
   const naviagte = useNavigate();
 
+ 
+
 
 
   useEffect(()=>{
@@ -41,7 +43,7 @@ const Home = () => {
   }
   const fetchExpenses = async()=>{
     try {
-      const url = 'http://localhost:8080/expenses';
+      const url = backendUrl + '/expenses';
       const headers = {
         headers:{
           'Authorization' : localStorage.getItem('token')
@@ -62,7 +64,7 @@ const Home = () => {
 
   const addExpenses = async(data)=>{
     try {
-      const url = 'http://localhost:8080/expenses';
+      const url = backendUrl + '/expenses';
       const headers = {
         headers:{
           'Authorization' : localStorage.getItem('token'),
@@ -90,7 +92,7 @@ const Home = () => {
 
     const hanldeDeleteExpense = async(expenseId)=>{
       try {
-        const url = `http://localhost:8080/expenses/${expenseId}`;
+        const url = backendUrl + `/expenses/${expenseId}`;
         const headers = {
           headers:{
             'Authorization' : localStorage.getItem('token'),

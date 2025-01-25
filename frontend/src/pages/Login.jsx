@@ -4,6 +4,7 @@ import {ToastContainer} from 'react-toastify'
 import { handleError, handleSuccess } from '../utils/Utils'
 
 const Login = () => {
+     const backendUrl = import.meta.env.VITE_BACKEND_URL
     const [loginInfo, setLoginInfo] = useState({
         email: '',
         password: '',
@@ -25,7 +26,7 @@ const Login = () => {
             return handleError('Please fill the form correctly!')
         }
         try {
-            const url = "http://localhost:8080/auth/login";
+            const url = backendUrl + "/auth/login";
             const response = await fetch(url, {
                 method: "POST", 
                 headers: {
