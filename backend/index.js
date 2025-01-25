@@ -17,7 +17,7 @@ app.get('/ping', (req, res) => {
 
 app.use(bodyParser.json());
 app.use(cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: 'https://expense-tracker-frontend-kappa-ten.vercel.app',
     methods: ["GET","POST","DELETE", "PUT"],
     credentials: true,
 }));
